@@ -73,19 +73,61 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="home">
-    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=1920&q=80');"></div>
+    <!-- Background with Ken Burns -->
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1478147427282-58a87a120781?fm=jpg&q=85&w=1920&auto=format&fit=crop');"></div>
+
+    <!-- Layered cinematic overlays -->
+    <div class="hero-overlay-gradient"></div>
+    <div class="hero-overlay-vignette"></div>
+
+    <!-- Animated line that draws across the top -->
+    <div class="hero-line-top"></div>
+
+    <!-- Main centered content -->
     <div class="hero-content">
-      <h1 data-i18n="hero_title">Bienvenido a Casa</h1>
-      <p data-i18n="hero_subtitle">Apostolic Assembly Germany</p>
-      <a href="#about" class="btn-ghost" data-i18n="hero_cta">Conoce Más</a>
+      <!-- Badge -->
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>Iglesia Apostólica — Múnich, Alemania</span>
+      </div>
+
+      <!-- Scripture verse -->
+      <p class="hero-verse">"Yo soy el camino, la verdad y la vida" — Juan 14:6</p>
+
+      <!-- Title with clip animation (word by word) -->
+      <div class="hero-title-wrap">
+        <div class="hero-title-clip"><span>Bienvenido</span></div>
+        <div class="hero-title-clip hero-title-clip--2"><span>a Casa.</span></div>
+      </div>
+
+      <!-- Subtitle -->
+      <p class="hero-subtitle" data-i18n="hero_subtitle">Apostolic Assembly Germany</p>
+
+      <!-- CTA buttons -->
+      <div class="hero-ctas">
+        <a href="#about" class="btn-hero-primary" data-i18n="hero_cta">Conoce Más</a>
+        <a href="#schedule" class="btn-hero-ghost">Ver Horarios
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
     </div>
+
+    <!-- Scroll indicator -->
     <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
       <span data-i18n="hero_scroll">Descubre</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 5v14M5 12l7 7 7-7"/>
-      </svg>
+    </div>
+
+    <!-- Bottom stat strip -->
+    <div class="hero-stat-strip">
+      <div class="hero-stat"><span class="hero-stat-num">850+</span><span class="hero-stat-lbl">Miembros</span></div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat"><span class="hero-stat-num">3</span><span class="hero-stat-lbl">Idiomas</span></div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat"><span class="hero-stat-num">Dom 10:00</span><span class="hero-stat-lbl">Próximo Servicio</span></div>
     </div>
   </section>
+
 
   <!-- ===== MARQUEE BANNER ===== -->
   <div class="marquee-section">
