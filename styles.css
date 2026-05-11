@@ -30,7 +30,7 @@
   --radius-sm: 0px;
 }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; max-width: 100%; }
 body {
   font-family: var(--font-main);
   color: var(--gray-300);
@@ -1266,4 +1266,60 @@ body.admin-mode .admin-badge { display: block; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
   .sermon-item { grid-template-columns: 1fr; gap: 12px; }
   .sermon-date { text-align: left; display: flex; gap: 8px; align-items: baseline; }
+
+  /* ===== HERO MOBILE FIXES ===== */
+  .hero { min-height: 100svh; }
+  .hero-content { padding: 0 20px; max-width: 100%; }
+
+  /* Badge: una sola linea, mas pequeno */
+  .hero-badge {
+    font-size: 0.62rem;
+    padding: 7px 14px;
+    gap: 8px;
+    max-width: 90vw;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.3;
+  }
+
+  /* Verse */
+  .hero-verse { font-size: 0.72rem; padding: 0 10px; }
+
+  /* Titulo: no se sale del ancho */
+  .hero-title-clip span {
+    font-size: clamp(3rem, 16vw, 5rem);
+    letter-spacing: -0.01em;
+  }
+
+  /* Subtitle */
+  .hero-subtitle { letter-spacing: 0.2em; font-size: 0.72rem; }
+
+  /* Botones: apilados y anchos */
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    padding: 0 0px;
+  }
+  .btn-hero-primary, .btn-hero-ghost {
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    padding: 16px 24px;
+  }
+
+  /* Scroll indicator: sube para no chocar con la stat strip */
+  .hero-scroll { bottom: 90px; }
+
+  /* Stat strip: mas compacta */
+  .hero-stat-strip {
+    padding: 14px 8px;
+    gap: 0;
+    justify-content: space-around;
+  }
+  .hero-stat { padding: 0 10px; }
+  .hero-stat-num { font-size: 1rem; }
+  .hero-stat-lbl { font-size: 0.55rem; letter-spacing: 0.12em; }
+  .hero-stat-divider { height: 28px; }
 }
