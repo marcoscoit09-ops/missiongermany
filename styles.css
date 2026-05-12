@@ -44,6 +44,77 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
 button { cursor: pointer; border: none; background: none; font-family: var(--font-main); }
 ul { list-style: none; }
 
+/* ===== PARALLAX BACKGROUND SYSTEM ===== */
+.bg-parallax {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.bg-parallax::before {
+  content: '';
+  position: absolute;
+  inset: -8%;
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+  animation: sectionParallax 25s ease-in-out infinite alternate;
+  will-change: transform;
+}
+/* Dark overlay for dark sections (white text) */
+.bg-parallax--dark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  z-index: -1;
+}
+/* Light overlay for light sections (dark text) */
+.bg-parallax--light::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.88);
+  z-index: -1;
+}
+/* Warm overlay: white + gold tint for pastors section */
+.bg-parallax--warm::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 252, 245, 0.90);
+  z-index: -1;
+}
+
+/* The subtle parallax animation for section backgrounds */
+@keyframes sectionParallax {
+  0%   { transform: scale(1.0) translate(0%, 0%); }
+  30%  { transform: scale(1.04) translate(-1%, 0.5%); }
+  60%  { transform: scale(1.07) translate(1%, -0.5%); }
+  100% { transform: scale(1.1) translate(-0.5%, 1%); }
+}
+
+/* Ensure content inside parallax sections is readable */
+.bg-parallax .container,
+.bg-parallax .stats-grid { position: relative; z-index: 1; }
+
+/* Section-dark text colors remain white even with parallax */
+.bg-parallax.section-dark,
+.bg-parallax--dark { color: var(--white); }
+.bg-parallax--dark .section-label { color: var(--gold); }
+.bg-parallax--dark h2 { color: var(--white); }
+.bg-parallax--dark p { color: rgba(255,255,255,0.75); }
+
+/* Mobile: disable fixed attachment (iOS doesn't support it well) */
+@media (max-width: 768px) {
+  .bg-parallax::before {
+    background-attachment: scroll;
+    inset: 0;
+    animation: none;
+  }
+}
+
+
 /* ===== UTILITY BAR ===== */
 .utility-bar {
   background: var(--gray-100);
