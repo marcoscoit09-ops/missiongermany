@@ -173,11 +173,12 @@ ul { list-style: none; }
 /* Ken Burns background */
 .hero-bg {
   position: absolute;
-  inset: 0;
+  inset: -5%;
   background-size: cover;
-  background-position: center top;
-  animation: kenBurns 20s ease-in-out infinite alternate;
+  background-position: center;
+  animation: kenBurns 30s ease-in-out infinite alternate;
   will-change: transform;
+  transform-origin: center center;
 }
 
 /* Cinematic gradient overlay — dark bottom + light at top */
@@ -953,8 +954,24 @@ ul { list-style: none; }
 
 /* ===== ANIMATIONS ===== */
 @keyframes kenBurns {
-  0% { transform: scale(1.05); }
-  100% { transform: scale(1.15); }
+  0% {
+    transform: scale(1.0) translate(0%, 0%);
+    background-position: center top;
+  }
+  25% {
+    transform: scale(1.06) translate(-1.5%, 1%);
+  }
+  50% {
+    transform: scale(1.12) translate(1%, -1.5%);
+    background-position: 55% center;
+  }
+  75% {
+    transform: scale(1.08) translate(-0.5%, 2%);
+  }
+  100% {
+    transform: scale(1.15) translate(2%, -0.5%);
+    background-position: 45% bottom;
+  }
 }
 @keyframes fadeUp {
   to { opacity: 1; transform: translateY(0); }
