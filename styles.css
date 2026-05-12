@@ -61,29 +61,52 @@ ul { list-style: none; }
   animation: sectionParallax 25s ease-in-out infinite alternate;
   will-change: transform;
 }
-/* Dark overlay for dark sections (white text) */
+/* Dark overlay — cinematic gradient with vignette */
 .bg-parallax--dark::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.78);
+  background:
+    linear-gradient(to bottom,
+      rgba(0,0,0,0.85) 0%,
+      rgba(0,0,0,0.65) 40%,
+      rgba(0,0,0,0.65) 60%,
+      rgba(0,0,0,0.85) 100%),
+    radial-gradient(ellipse at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.45) 100%);
   z-index: -1;
 }
-/* Light overlay for light sections (dark text) */
+/* Light overlay — creamy with color tint for texture visibility */
 .bg-parallax--light::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.88);
+  background:
+    linear-gradient(to bottom,
+      rgba(248,246,242,0.93) 0%,
+      rgba(248,246,242,0.82) 50%,
+      rgba(248,246,242,0.93) 100%);
   z-index: -1;
 }
-/* Warm overlay: white + gold tint for pastors section */
+/* Warm overlay — gold-tinted for pastors */
 .bg-parallax--warm::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255, 252, 245, 0.90);
+  background:
+    linear-gradient(to right,
+      rgba(255,252,245,0.96) 0%,
+      rgba(255,252,245,0.96) 55%,
+      rgba(255,252,245,0.6) 100%);
   z-index: -1;
+}
+
+/* Section separator line */
+.bg-parallax {
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+.bg-parallax--dark,
+.bg-parallax.section-dark {
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 /* The subtle parallax animation for section backgrounds */
@@ -104,8 +127,9 @@ ul { list-style: none; }
 .bg-parallax--dark .section-label { color: var(--gold); }
 .bg-parallax--dark h2 { color: var(--white); }
 .bg-parallax--dark p { color: rgba(255,255,255,0.75); }
+.bg-parallax--dark h4 { color: var(--white); }
 
-/* Mobile: disable fixed attachment (iOS doesn't support it well) */
+/* Mobile: animation off for performance */
 @media (max-width: 768px) {
   .bg-parallax::before {
     background-attachment: scroll;
@@ -113,6 +137,7 @@ ul { list-style: none; }
     animation: none;
   }
 }
+
 
 
 /* ===== UTILITY BAR ===== */
@@ -945,31 +970,33 @@ ul { list-style: none; }
   width: 100%;
   padding: 14px 0;
   border: none;
-  border-bottom: 2px solid var(--gray-200);
+  border-bottom: 2px solid rgba(255,255,255,0.2);
   font-family: var(--font-main);
   font-size: 0.95rem;
-  color: var(--gray-800);
+  color: var(--white);
   transition: var(--transition);
   background: transparent;
   outline: none;
 }
+.contact-form input::placeholder,
+.contact-form textarea::placeholder { color: rgba(255,255,255,0.45); }
 .contact-form input:focus,
-.contact-form textarea:focus { border-color: var(--black); }
-.contact-form textarea { resize: vertical; min-height: 120px; }
+.contact-form textarea:focus { border-color: var(--gold); }
+.contact-form textarea { resize: vertical; min-height: 120px; color: var(--white); }
 .contact-info { display: flex; flex-direction: column; justify-content: center; }
 .contact-info-item {
   padding: 24px 0;
-  border-bottom: 1px solid var(--gray-200);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .contact-info-item h4 {
   font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--gray-400);
+  color: var(--gold);
   margin-bottom: 8px;
 }
-.contact-info-item p { font-size: 1rem; font-weight: 500; }
+.contact-info-item p { font-size: 1rem; font-weight: 500; color: rgba(255,255,255,0.85); }
 .contact-info-item a:hover { color: var(--gold); }
 .social-links { display: flex; gap: 16px; margin-top: 8px; }
 .social-links a {
@@ -1195,7 +1222,7 @@ ul { list-style: none; }
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: var(--black);
+  color: var(--white);
   line-height: 1;
   display: block;
   margin-bottom: 10px;
@@ -1204,9 +1231,10 @@ ul { list-style: none; }
   font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gray-500);
+  color: rgba(255,255,255,0.6);
   font-weight: 600;
 }
+.stat-item { border-right-color: rgba(255,255,255,0.12); }
 
 /* ===== PARALLAX IMAGE ===== */
 .parallax-wrapper {
