@@ -60,8 +60,24 @@ const defaultData = {
   }
 };
 
-// FORCE MOCK DATA FOR DEMO PURPOSES
+// Load saved data but ALWAYS use defaultData.sermons (PDFs must come from code, not localStorage)
+const _saved = localStorage.getItem('aag-data');
 let siteData = defaultData;
+if (_saved) {
+  try {
+    const parsed = JSON.parse(_saved);
+    siteData = {
+      groups:     parsed.groups     || defaultData.groups,
+      songs:      parsed.songs      || defaultData.songs,
+      devotional: parsed.devotional || defaultData.devotional,
+      // Sermons always from defaultData so PDF links are always current
+      sermons: defaultData.sermons
+    };
+  } catch(e) {
+    siteData = defaultData;
+  }
+}
+
 
 
 function saveSiteData() {
