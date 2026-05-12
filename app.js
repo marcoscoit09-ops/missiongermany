@@ -5,27 +5,63 @@ let isAdmin = sessionStorage.getItem('aag-admin') === 'true';
 // ===== DATA MANAGEMENT =====
 const defaultData = {
   groups: [
-    { id: 1, name: "Juventud Sin Límites", leader: "David & Sarah", desc: "Un espacio dinámico para jóvenes de 18 a 30 años. Música, amigos y conversaciones profundas.", day: "Viernes", time: "19:00", map: "https://maps.google.com", img: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80" },
-    { id: 2, name: "Matrimonios Fuertes", leader: "Familia Gómez", desc: "Construyendo matrimonios con propósito. Una noche relajada de cena, comunidad y enseñanza.", day: "Sábados", time: "18:30", map: "https://maps.google.com", img: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&q=80" },
-    { id: 3, name: "Mujeres de Propósito", leader: "Pastora Elena", desc: "Reunión quincenal de mujeres para estudiar la Palabra, apoyarnos y tomar un buen café.", day: "Jueves", time: "10:00", map: "https://maps.google.com", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80" },
-    { id: 4, name: "Hombres de Valor", leader: "Carlos Ramírez", desc: "Desayuno mensual de hombres. Hablamos de liderazgo, familia y fe en el mundo de hoy.", day: "Sábados", time: "09:00", map: "https://maps.google.com", img: "https://images.unsplash.com/photo-1556484687-3063615661bc?w=800&q=80" }
+    {
+      id: 1, name: "Grupo de Amistad — Martes",
+      leader: "Lucia Kremer", day: "Martes", time: "19:00",
+      address: "Friedrich-Loy-Strasse 16, 80796 München",
+      map: "https://maps.google.com/?q=Friedrich-Loy-Strasse+16,+80796+M%C3%BCnchen",
+      desc: "Un grupo cálido y acogedor en el norte de Munich. Vengas de donde vengas, aquí encontrarás amigos y un lugar donde crecer en la fe.",
+      img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80"
+    },
+    {
+      id: 2, name: "Grupo de Amistad — Miércoles",
+      leader: "Jhonatan Coitiño", day: "Miércoles", time: "19:30",
+      address: "Bertschstraße 26, 81673 München",
+      map: "https://maps.google.com/?q=Bertschstra%C3%9Fe+26,+81673+M%C3%BCnchen",
+      desc: "Grupo en el este de Munich. Un espacio de fe, conversación profunda y comunidad genuina a mitad de semana.",
+      img: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&q=80"
+    },
+    {
+      id: 3, name: "Grupo de Amistad — Viernes (Ottobrunn)",
+      leader: "Jhonatan Coitiño", day: "Viernes", time: "20:00",
+      address: "Sudetenstraße 79, 85521 Ottobrunn",
+      map: "https://maps.google.com/?q=Sudentenstra%C3%9Fe+79,+85521+Ottobrunn",
+      desc: "Grupo en Ottobrunn al sur de Munich. La noche del viernes es perfecta para conectar, compartir la Palabra y hacer amigos.",
+      img: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80"
+    },
+    {
+      id: 4, name: "Grupo de Amistad — Viernes (München)",
+      leader: "Jhonatan Coitiño", day: "Viernes", time: "19:30",
+      address: "Stettnerstrasse 5, 81549 München",
+      map: "https://maps.google.com/?q=Stettnerstrasse+5,+81549+M%C3%BCnchen",
+      desc: "Grupo en el sureste de Munich. Un tiempo de adoración, oración y amistad genuina para cerrar la semana con Dios.",
+      img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80"
+    }
   ],
   sermons: [
-    { id: 1, title: "Inquebrantables: Construyendo sobre la Roca", speaker: "Pastor Principal", date: "11", month: "MAY", link: "#" },
-    { id: 2, title: "El Poder de la Gracia Irresistible", speaker: "Pastor Invitado", date: "04", month: "MAY", link: "#" },
-    { id: 3, title: "Renovando tu Mente", speaker: "Líder de Jóvenes", date: "27", month: "ABR", link: "#" },
-    { id: 4, title: "Caminando por Fe y no por Vista", speaker: "Pastor Principal", date: "20", month: "ABR", link: "#" }
+    { id: 1, title: "Inquebrantables: Construyendo sobre la Roca", speaker: "Jhonatan Coitiño", date: "11", month: "MAY", folder: "Notas de Predicaciones", link: "#" },
+    { id: 2, title: "El Poder de la Gracia Irresistible", speaker: "Jhonatan Coitiño", date: "04", month: "MAY", folder: "Notas de Predicaciones", link: "#" },
+    { id: 3, title: "Renovando tu Mente", speaker: "Jhonatan Coitiño", date: "27", month: "ABR", folder: "Notas de Predicaciones", link: "#" },
+    { id: 4, title: "Caminando por Fe y no por Vista", speaker: "Jhonatan Coitiño", date: "20", month: "ABR", folder: "Notas de Predicaciones", link: "#" },
+    { id: 5, title: "La Oración que Mueve Montañas", speaker: "Jhonatan Coitiño", date: "13", month: "ABR", folder: "Notas de Predicaciones", link: "#" },
+    { id: 6, title: "Identidad en Cristo", speaker: "Jhonatan Coitiño", date: "06", month: "ABR", folder: "Notas de Predicaciones", link: "#" }
   ],
   songs: [
     { id: 1, name: "Océanos (Donde mis pies pueden fallar)", artist: "Hillsong en Español", link: "https://youtube.com" },
     { id: 2, name: "Gracia Incomparable", artist: "Hillsong Worship", link: "https://youtube.com" },
     { id: 3, name: "Hermoso Nombre", artist: "Hillsong en Español", link: "https://youtube.com" },
     { id: 4, name: "Digno y Santo", artist: "Kari Jobe", link: "https://youtube.com" }
-  ]
+  ],
+  devotional: {
+    date: new Date().toLocaleDateString('es-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+    text: "No importa lo que estés atravesando hoy, recuerda que Dios va delante de ti. Su fidelidad no depende de tus circunstancias, sino de Su carácter. Confía en Él con todo tu corazón.",
+    verse: "\"Confía en el Señor con todo tu corazón, y no te apoyes en tu propio entendimiento.\" — Proverbios 3:5"
+  }
 };
 
 // FORCE MOCK DATA FOR DEMO PURPOSES
 let siteData = defaultData;
+
 
 function saveSiteData() {
   localStorage.setItem('aag-data', JSON.stringify(siteData));
@@ -37,55 +73,65 @@ function saveSiteData() {
 const translations = {
   es: {
     nav_home: "Inicio", nav_about: "Quiénes Somos", nav_schedule: "Horarios", nav_groups: "Grupos", nav_sermons: "Predicaciones", nav_songs: "Canciones", nav_contact: "Contacto",
-    util_social: "Síguenos", hero_title: "Bienvenido a Casa", hero_subtitle: "Apostolic Assembly Germany", hero_cta: "Conoce Más", hero_scroll: "Descubre",
-    about_label: "Nuestra Historia", about_title: "Quiénes Somos", 
-    about_desc: "En Apostolic Assembly Germany creemos firmemente en que cada persona tiene un propósito divino. Somos una comunidad diversa, vibrante y llena de vida, unida por el amor a Jesús. Desde el primer momento en que cruzas nuestras puertas, nuestro mayor deseo es que te sientas en casa, rodeado de una familia que te acepta, te inspira y te acompaña en tu caminar.",
-    about_mission_title: "Nuestra Misión", 
-    about_mission: "Llevar el mensaje de esperanza y salvación de Cristo a cada rincón de Alemania, construyendo una iglesia apasionada por la presencia de Dios y comprometida con el amor al prójimo.",
-    about_vision_title: "Nuestra Visión", 
-    about_vision: "Ser una iglesia relevante, contemporánea y transformadora, donde las familias sean restauradas y los líderes sean levantados para influenciar positivamente a nuestra sociedad.",
-    pastors_label: "Liderazgo", pastors_title: "Nuestros Pastores", pastors_name: "Pastores Marcos y Elena Gómez", pastors_role: "Pastores Principales", 
-    pastors_bio: "Con más de 15 años de ministerio, los pastores Marcos y Elena tienen el profundo deseo de levantar una generación apasionada por Jesús en Europa. Su enfoque es la restauración familiar y la enseñanza de principios bíblicos prácticos que transforman el día a día. Han dedicado su vida a construir una iglesia auténtica donde todos puedan experimentar el poder del Espíritu Santo.",
-    schedule_label: "Reuniones", schedule_title: "Nuestros Horarios", schedule_desc: "Nuestras puertas están abiertas. Únete a nosotros cada semana para experimentar una adoración poderosa, comunidad genuina y mensajes que impactarán tu vida.",
-    sched_sunday: "Servicio Dominical", sched_sunday_day: "Domingos", sched_sunday_time: "10:00 & 12:30",
-    sched_wednesday: "Noche de Liderazgo", sched_wednesday_day: "Miércoles", sched_wednesday_time: "19:00",
-    sched_friday: "Viernes de Oración", sched_friday_day: "Viernes", sched_friday_time: "19:30",
-    groups_label: "Comunidad", groups_title: "Grupos de Conexión", groups_desc: "La iglesia es más que un servicio de domingo. Es hacer la vida juntos. Nuestros grupos son el lugar perfecto para hacer amigos y crecer.",
-    sermons_label: "Palabra", sermons_title: "Notas de Predicaciones", sermons_desc: "Revive los mensajes que están marcando el rumbo de nuestra iglesia. Lleva la Palabra contigo a donde vayas.",
-    songs_label: "Adoración", songs_title: "Canciones del Domingo", songs_desc: "Nuestra adoración es una expresión sincera de amor a Dios. Escucha la lista de reproducción que cantaremos esta semana.",
+    util_social: "Síguenos", hero_subtitle: "Apostolic Assembly Germany", hero_cta: "Conoce Más", hero_scroll: "Descubre",
+    hero_badge: "Iglesia Apostólica — Múnich, Alemania",
+    hero_verse: "\"Yo soy el camino, la verdad y la vida\" — Juan 14:6",
+    hero_title_line1: "Bienvenido", hero_title_line2: "a Casa.",
+    stat_groups: "Grupos de Amistad", stat_langs: "Idiomas", stat_service: "Próximo Servicio", stat_years: "Años de Ministerio", stat_services: "Servicios al Año",
+    sched_prayer: "Oración de Iglesia", sched_prayer_day: "Lunes", sched_prayer_desc: "Vía Google Meet. Únete desde casa.", sched_join: "Unirse a Meet →",
+    sched_groups: "Grupos de Amistad", sched_groups_day: "Lunes a Viernes", sched_groups_time: "Varios horarios", sched_groups_desc: "Grupos pequeños en casas por toda Munich.", sched_see: "Ver grupos →",
+    sched_sunday: "Servicio Dominical", sched_sunday_day: "Domingos", sched_sunday_time: "11:00 – 13:00 h", sched_sunday_desc: "Adoración, predicación y comunidad. Todos bienvenidos.",
+    devot_title: "Devocional del Día", devot_fab: "Devocional",
+    about_label: "Nuestra Historia", about_title: "Quiénes Somos",
+    about_desc: "En Apostolic Assembly Germany creemos firmemente en que cada persona tiene un propósito divino. Somos una comunidad diversa, vibrante y llena de vida, unida por el amor a Jesús.",
+    about_mission_title: "Nuestra Misión",
+    about_mission: "Llevar el mensaje de esperanza y salvación de Cristo a cada rincón de Alemania, construyendo una iglesia apasionada por la presencia de Dios.",
+    about_vision_title: "Nuestra Visión",
+    about_vision: "Ser una iglesia relevante, contemporánea y transformadora, donde las familias sean restauradas y los líderes levantados.",
+    pastors_label: "Liderazgo", pastors_title: "Nuestros Pastores", pastors_name: "Jhonatan & Lucía Coitiño", pastors_role: "Pastores Principales",
+    pastors_bio: "Jhonatan y Lucía Coitiño llevan 3 años al frente de la Asamblea Apostólica en Alemania con un corazón apasionado por ver a cada persona encontrar su propósito en Dios.",
+    schedule_label: "Reuniones", schedule_title: "Nuestros Horarios", schedule_desc: "Te esperamos cada semana. Tres formas de conectar con nuestra comunidad.",
+    groups_label: "Comunidad", groups_title: "Grupos de Amistad", groups_desc: "La iglesia es más que el domingo. Nuestros grupos de amistad son el corazón de nuestra comunidad.",
+    sermons_label: "Palabra", sermons_title: "Notas de Predicaciones", sermons_desc: "Revive los mensajes que están marcando el rumbo de nuestra iglesia.",
+    songs_label: "Adoración", songs_title: "Canciones del Domingo", songs_desc: "Nuestra adoración es una expresión sincera de amor a Dios.",
     songs_week: "Setlist de esta semana", song_listen: "YouTube",
-    visitors_title: "¿Es tu Primera Visita?", visitors_desc: "¡Nos encantaría conocerte! No importa de dónde vengas, cuál sea tu trasfondo o tu historia, aquí hay un lugar para ti. Ven tal como eres y acompáñanos a disfrutar de un gran café y un ambiente de fe.", visitors_cta: "Planifica tu Visita",
-    contact_label: "Conecta", contact_title: "Estamos para Ayudarte", contact_desc: "¿Tienes alguna pregunta, necesitas oración o quieres saber más sobre nosotros? Déjanos un mensaje y nuestro equipo se contactará contigo.", contact_name: "Nombre Completo", contact_email: "Correo Electrónico", contact_message: "Escribe tu mensaje aquí...", contact_send: "Enviar Mensaje",
+    visitors_title: "¿Es tu Primera Visita?", visitors_desc: "¡Nos encantaría conocerte! No importa de dónde vengas, aquí hay un lugar para ti.", visitors_cta: "Planifica tu Visita",
+    contact_label: "Conecta", contact_title: "Estamos para Ayudarte", contact_desc: "¿Tienes alguna pregunta o necesitas oración? Escríbenos.", contact_name: "Nombre Completo", contact_email: "Correo Electrónico", contact_message: "Escribe tu mensaje aquí...", contact_send: "Enviar Mensaje",
     footer_desc: "Una iglesia contemporánea en el corazón de Múnich, construyendo comunidad y compartiendo fe.", footer_rights: "Todos los derechos reservados.",
-    prayer_label: "Oración", prayer_title: "Peticiones de Oración", prayer_desc: "¿Necesitas oración? Comparte tu petición con nosotros y estaremos intercediendo por ti.",
-    prayer_name: "Tu nombre (opcional)", prayer_placeholder: "Escribe tu petición de oración aquí...", prayer_submit: "Enviar Petición",
+    prayer_label: "Oración", prayer_title: "Peticiones de Oración", prayer_desc: "¿Necesitas oración? Comparte tu petición con nosotros.",
+    prayer_name: "Tu nombre (opcional)", prayer_placeholder: "Escribe tu petición aquí...", prayer_submit: "Enviar Petición",
     contact_address_label: "Dirección", contact_phone_label: "Teléfono", contact_email_label: "Email", contact_social_label: "Redes Sociales",
     footer_links: "Navegación", footer_services: "Recursos", footer_connect: "Conecta",
     footer_live: "Transmisión en Vivo", footer_events: "Eventos", footer_give: "Ofrendar"
   },
   en: {
     nav_home: "Home", nav_about: "About Us", nav_schedule: "Schedule", nav_groups: "Groups", nav_sermons: "Sermons", nav_songs: "Songs", nav_contact: "Contact",
-    util_social: "Follow Us", hero_title: "Welcome Home", hero_subtitle: "Apostolic Assembly Germany", hero_cta: "Learn More", hero_scroll: "Discover",
+    util_social: "Follow Us", hero_subtitle: "Apostolic Assembly Germany", hero_cta: "Learn More", hero_scroll: "Discover",
+    hero_badge: "Apostolic Church — Munich, Germany",
+    hero_verse: "\"I am the way, the truth and the life\" — John 14:6",
+    hero_title_line1: "Welcome", hero_title_line2: "Home.",
+    stat_groups: "Friendship Groups", stat_langs: "Languages", stat_service: "Next Service", stat_years: "Years of Ministry", stat_services: "Services per Year",
+    sched_prayer: "Church Prayer", sched_prayer_day: "Mondays", sched_prayer_desc: "Via Google Meet. Join from home.", sched_join: "Join Meet →",
+    sched_groups: "Friendship Groups", sched_groups_day: "Mon to Fri", sched_groups_time: "Various times", sched_groups_desc: "Small groups in homes across Munich.", sched_see: "See groups →",
+    sched_sunday: "Sunday Service", sched_sunday_day: "Sundays", sched_sunday_time: "11:00 – 13:00", sched_sunday_desc: "Worship, preaching and community. Everyone welcome.",
+    devot_title: "Daily Devotional", devot_fab: "Devotional",
     about_label: "Our Story", about_title: "Who We Are",
-    about_desc: "At Apostolic Assembly Germany, we firmly believe that every person has a divine purpose. We are a diverse, vibrant community united by the love of Jesus. From the very first moment you walk through our doors, our greatest desire is for you to feel at home, surrounded by a family that accepts, inspires, and walks alongside you.",
+    about_desc: "At Apostolic Assembly Germany, we firmly believe every person has a divine purpose. We are a diverse, vibrant community united by the love of Jesus.",
     about_mission_title: "Our Mission",
-    about_mission: "To bring the message of hope and salvation of Christ to every corner of Germany, building a church passionate about the presence of God and committed to loving our neighbors.",
+    about_mission: "To bring the message of hope and salvation of Christ to every corner of Germany, building a church passionate about the presence of God.",
     about_vision_title: "Our Vision",
-    about_vision: "To be a relevant, contemporary and transforming church, where families are restored and leaders are raised to positively influence our society.",
-    pastors_label: "Leadership", pastors_title: "Our Pastors", pastors_name: "Pastors Marcos & Elena Gómez", pastors_role: "Lead Pastors",
-    pastors_bio: "With over 15 years of ministry, Pastors Marcos and Elena have a deep desire to raise a generation passionate about Jesus in Europe. Their focus is on family restoration and teaching practical biblical principles that transform everyday life.",
-    schedule_label: "Services", schedule_title: "Our Schedule", schedule_desc: "Our doors are open. Join us every week to experience powerful worship, genuine community, and messages that will impact your life.",
-    sched_sunday: "Sunday Service", sched_sunday_day: "Sundays", sched_sunday_time: "10:00 & 12:30",
-    sched_wednesday: "Leadership Night", sched_wednesday_day: "Wednesdays", sched_wednesday_time: "7:00 PM",
-    sched_friday: "Prayer Friday", sched_friday_day: "Fridays", sched_friday_time: "7:30 PM",
-    groups_label: "Community", groups_title: "Connection Groups", groups_desc: "Church is more than a Sunday service. It's doing life together. Our groups are the perfect place to make friends and grow.",
-    sermons_label: "The Word", sermons_title: "Sermon Notes", sermons_desc: "Relive the messages shaping the direction of our church. Take the Word with you wherever you go.",
-    songs_label: "Worship", songs_title: "Songs of the Week", songs_desc: "Our worship is a sincere expression of love for God. Listen to the playlist we'll sing this week.",
+    about_vision: "To be a relevant, contemporary and transforming church where families are restored and leaders are raised.",
+    pastors_label: "Leadership", pastors_title: "Our Pastors", pastors_name: "Jhonatan & Lucía Coitiño", pastors_role: "Lead Pastors",
+    pastors_bio: "Jhonatan and Lucía Coitiño have led the Apostolic Assembly in Germany for 3 years with a heart passionate about seeing every person find their purpose in God.",
+    schedule_label: "Services", schedule_title: "Our Schedule", schedule_desc: "Three ways to connect with our community every week.",
+    groups_label: "Community", groups_title: "Friendship Groups", groups_desc: "Church is more than Sunday. Our friendship groups are the heart of our community.",
+    sermons_label: "The Word", sermons_title: "Sermon Notes", sermons_desc: "Relive the messages shaping the direction of our church.",
+    songs_label: "Worship", songs_title: "Songs of the Week", songs_desc: "Our worship is a sincere expression of love for God.",
     songs_week: "This week's setlist", song_listen: "YouTube",
-    visitors_title: "Is This Your First Visit?", visitors_desc: "We'd love to meet you! No matter where you come from or what your background is, there's a place for you here. Come as you are and join us for great coffee and a faith-filled atmosphere.", visitors_cta: "Plan Your Visit",
-    contact_label: "Connect", contact_title: "We're Here to Help", contact_desc: "Do you have a question, need prayer, or want to know more about us? Leave us a message and our team will get back to you.", contact_name: "Full Name", contact_email: "Email Address", contact_message: "Write your message here...", contact_send: "Send Message",
+    visitors_title: "Is This Your First Visit?", visitors_desc: "We'd love to meet you! No matter where you come from, there's a place for you here.", visitors_cta: "Plan Your Visit",
+    contact_label: "Connect", contact_title: "We're Here to Help", contact_desc: "Have a question or need prayer? Write to us.", contact_name: "Full Name", contact_email: "Email Address", contact_message: "Write your message here...", contact_send: "Send Message",
     footer_desc: "A contemporary church in the heart of Munich, building community and sharing faith.", footer_rights: "All rights reserved.",
-    prayer_label: "Prayer", prayer_title: "Prayer Requests", prayer_desc: "Do you need prayer? Share your request with us and we will be interceding for you.",
+    prayer_label: "Prayer", prayer_title: "Prayer Requests", prayer_desc: "Do you need prayer? Share your request with us.",
     prayer_name: "Your name (optional)", prayer_placeholder: "Write your prayer request here...", prayer_submit: "Submit Request",
     contact_address_label: "Address", contact_phone_label: "Phone", contact_email_label: "Email", contact_social_label: "Social Media",
     footer_links: "Navigation", footer_services: "Resources", footer_connect: "Connect",
@@ -93,27 +139,32 @@ const translations = {
   },
   de: {
     nav_home: "Start", nav_about: "Über Uns", nav_schedule: "Gottesdienste", nav_groups: "Gruppen", nav_sermons: "Predigten", nav_songs: "Lieder", nav_contact: "Kontakt",
-    util_social: "Folg Uns", hero_title: "Willkommen Zuhause", hero_subtitle: "Apostolic Assembly Germany", hero_cta: "Mehr Erfahren", hero_scroll: "Entdecken",
+    util_social: "Folg Uns", hero_subtitle: "Apostolic Assembly Germany", hero_cta: "Mehr Erfahren", hero_scroll: "Entdecken",
+    hero_badge: "Apostolische Kirche — München, Deutschland",
+    hero_verse: "\"Ich bin der Weg, die Wahrheit und das Leben\" — Johannes 14:6",
+    hero_title_line1: "Willkommen", hero_title_line2: "Zuhause.",
+    stat_groups: "Freundschaftsgruppen", stat_langs: "Sprachen", stat_service: "Nächster Gottesdienst", stat_years: "Jahre Dienst", stat_services: "Gottesdienste pro Jahr",
+    sched_prayer: "Kirchengebet", sched_prayer_day: "Montags", sched_prayer_desc: "Via Google Meet. Von zu Hause beitreten.", sched_join: "Meet beitreten →",
+    sched_groups: "Freundschaftsgruppen", sched_groups_day: "Mo bis Fr", sched_groups_time: "Verschiedene Zeiten", sched_groups_desc: "Kleine Gruppen in Häusern in ganz München.", sched_see: "Gruppen sehen →",
+    sched_sunday: "Sonntagsgottesdienst", sched_sunday_day: "Sonntags", sched_sunday_time: "11:00 – 13:00 Uhr", sched_sunday_desc: "Anbetung, Predigt und Gemeinschaft. Alle willkommen.",
+    devot_title: "Tagesandacht", devot_fab: "Andacht",
     about_label: "Unsere Geschichte", about_title: "Wer Wir Sind",
-    about_desc: "Bei der Apostolic Assembly Germany glauben wir fest daran, dass jeder Mensch einen göttlichen Zweck hat. Wir sind eine vielfältige, lebendige Gemeinschaft, vereint durch die Liebe zu Jesus. Von dem Moment an, in dem du unsere Türen durchschreitest, ist unser größter Wunsch, dass du dich wie zu Hause fühlst.",
+    about_desc: "Bei der Apostolic Assembly Germany glauben wir fest, dass jeder Mensch einen göttlichen Zweck hat. Wir sind eine vielfältige, lebendige Gemeinschaft, vereint durch die Liebe zu Jesus.",
     about_mission_title: "Unsere Mission",
-    about_mission: "Die Botschaft der Hoffnung und Erlösung Christi in jeden Winkel Deutschlands zu tragen und eine Kirche aufzubauen, die leidenschaftlich in der Gegenwart Gottes lebt.",
+    about_mission: "Die Botschaft der Hoffnung und Erlösung Christi in jeden Winkel Deutschlands zu tragen.",
     about_vision_title: "Unsere Vision",
-    about_vision: "Eine relevante, zeitgemäße und transformierende Kirche zu sein, in der Familien wiederhergestellt und Führungspersönlichkeiten aufgebaut werden.",
-    pastors_label: "Führung", pastors_title: "Unsere Pastoren", pastors_name: "Pastoren Marcos & Elena Gómez", pastors_role: "Leitende Pastoren",
-    pastors_bio: "Mit über 15 Jahren Dienst haben die Pastoren Marcos und Elena den tiefen Wunsch, eine Generation zu erwecken, die leidenschaftlich für Jesus in Europa ist. Ihr Fokus liegt auf der Familienwiederherstellung und der Vermittlung praktischer biblischer Prinzipien.",
-    schedule_label: "Gottesdienste", schedule_title: "Unsere Zeiten", schedule_desc: "Unsere Türen stehen offen. Komm jede Woche zu uns, um kraftvolle Anbetung, echte Gemeinschaft und lebensverändernde Botschaften zu erleben.",
-    sched_sunday: "Sonntagsgottesdienst", sched_sunday_day: "Sonntags", sched_sunday_time: "10:00 & 12:30",
-    sched_wednesday: "Führungsabend", sched_wednesday_day: "Mittwochs", sched_wednesday_time: "19:00 Uhr",
-    sched_friday: "Gebetsabend", sched_friday_day: "Freitags", sched_friday_time: "19:30 Uhr",
-    groups_label: "Gemeinschaft", groups_title: "Verbindungsgruppen", groups_desc: "Kirche ist mehr als ein Sonntagsgottesdienst. Es geht darum, das Leben gemeinsam zu gestalten. Unsere Gruppen sind der perfekte Ort, um Freunde zu finden und zu wachsen.",
-    sermons_label: "Das Wort", sermons_title: "Predigtnotizen", sermons_desc: "Erlebe die Botschaften, die unsere Gemeinde prägen, erneut. Nimm das Wort Gottes überall hin mit.",
-    songs_label: "Anbetung", songs_title: "Lieder der Woche", songs_desc: "Unsere Anbetung ist ein aufrichtiger Ausdruck der Liebe zu Gott. Höre die Playlist, die wir diese Woche singen werden.",
+    about_vision: "Eine relevante, zeitgemäße und transformierende Kirche zu sein, in der Familien wiederhergestellt werden.",
+    pastors_label: "Führung", pastors_title: "Unsere Pastoren", pastors_name: "Jhonatan & Lucía Coitiño", pastors_role: "Leitende Pastoren",
+    pastors_bio: "Jhonatan und Lucía Coitiño leiten die Apostolische Gemeinde in Deutschland seit 3 Jahren mit einem Herz für jeden Menschen.",
+    schedule_label: "Gottesdienste", schedule_title: "Unsere Zeiten", schedule_desc: "Drei Möglichkeiten, jede Woche mit unserer Gemeinschaft in Kontakt zu treten.",
+    groups_label: "Gemeinschaft", groups_title: "Freundschaftsgruppen", groups_desc: "Kirche ist mehr als Sonntag. Unsere Freundschaftsgruppen sind das Herz unserer Gemeinde.",
+    sermons_label: "Das Wort", sermons_title: "Predigtnotizen", sermons_desc: "Erlebe die Botschaften, die unsere Gemeinde prägen, erneut.",
+    songs_label: "Anbetung", songs_title: "Lieder der Woche", songs_desc: "Unsere Anbetung ist ein aufrichtiger Ausdruck der Liebe zu Gott.",
     songs_week: "Setlist dieser Woche", song_listen: "YouTube",
-    visitors_title: "Ist es Dein Erster Besuch?", visitors_desc: "Wir würden dich gerne kennenlernen! Egal woher du kommst – hier ist ein Platz für dich. Komm wie du bist und genieße einen guten Kaffee in einer glaubensvollen Atmosphäre.", visitors_cta: "Besuch Planen",
-    contact_label: "Kontakt", contact_title: "Wir Sind Für Dich Da", contact_desc: "Hast du eine Frage, brauchst du Gebet oder möchtest mehr über uns erfahren? Hinterlasse uns eine Nachricht und unser Team wird sich bei dir melden.", contact_name: "Vollständiger Name", contact_email: "E-Mail-Adresse", contact_message: "Schreib deine Nachricht hier...", contact_send: "Nachricht Senden",
-    footer_desc: "Eine zeitgemäße Kirche im Herzen von München, die Gemeinschaft aufbaut und den Glauben teilt.", footer_rights: "Alle Rechte vorbehalten.",
-    prayer_label: "Gebet", prayer_title: "Gebetsanliegen", prayer_desc: "Brauchst du Gebet? Teile dein Anliegen mit uns und wir werden für dich eintreten.",
+    visitors_title: "Ist es Dein Erster Besuch?", visitors_desc: "Wir würden dich gerne kennenlernen! Hier ist ein Platz für dich.", visitors_cta: "Besuch Planen",
+    contact_label: "Kontakt", contact_title: "Wir Sind Für Dich Da", contact_desc: "Hast du eine Frage oder brauchst Gebet? Schreib uns.", contact_name: "Vollständiger Name", contact_email: "E-Mail-Adresse", contact_message: "Schreib deine Nachricht hier...", contact_send: "Nachricht Senden",
+    footer_desc: "Eine zeitgemäße Kirche im Herzen von München.", footer_rights: "Alle Rechte vorbehalten.",
+    prayer_label: "Gebet", prayer_title: "Gebetsanliegen", prayer_desc: "Brauchst du Gebet? Teile dein Anliegen mit uns.",
     prayer_name: "Dein Name (optional)", prayer_placeholder: "Schreibe dein Gebetsanliegen hier...", prayer_submit: "Anliegen Einreichen",
     contact_address_label: "Adresse", contact_phone_label: "Telefon", contact_email_label: "E-Mail", contact_social_label: "Soziale Medien",
     footer_links: "Navigation", footer_services: "Ressourcen", footer_connect: "Verbinden",
@@ -143,14 +194,16 @@ function renderGroups() {
       <div class="group-card-img"><img src="${g.img}" alt="${g.name}"></div>
       <div class="group-card-body">
         <h4>${g.name}</h4>
-        <p class="group-leader">Líder: ${g.leader}</p>
+        <p class="group-leader">👤 Líder: ${g.leader}</p>
         <p>${g.desc}</p>
         <div class="group-meta">
           <span>📅 ${g.day}</span>
           <span>🕐 ${g.time}</span>
         </div>
+        <div class="group-address">
+          📍 <a href="${g.map}" target="_blank">${g.address || 'Ver en Google Maps'}</a>
+        </div>
         <div style="margin-top:15px; display:flex; gap:10px; align-items:center;">
-          <a href="${g.map}" target="_blank" class="btn-outline" style="padding:5px 15px; font-size:0.6rem;">Google Maps</a>
           ${isAdmin ? `
             <button class="edit-btn" onclick="editGroup(${g.id})">✎</button>
             <button class="delete-btn" onclick="deleteGroup(${g.id})">✕</button>
@@ -160,6 +213,7 @@ function renderGroups() {
     </div>
   `).join('');
 }
+
 
 function renderSermons() {
   const container = document.getElementById('sermons-container');
@@ -443,4 +497,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// ===== DEVOTIONAL WIDGET =====
+function renderDevotional() {
+  const d = siteData.devotional;
+  if (!d) return;
+  const dateEl = document.getElementById('devotional-date');
+  const textEl = document.getElementById('devotional-text');
+  const verseEl = document.getElementById('devotional-verse');
+  if (dateEl) dateEl.textContent = d.date || new Date().toLocaleDateString('es-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  if (textEl) textEl.textContent = d.text || '';
+  if (verseEl) verseEl.textContent = d.verse || '';
+}
+
+function toggleDevotional() {
+  const widget = document.getElementById('devotional-widget');
+  const fab = document.getElementById('devotional-fab');
+  if (!widget) return;
+  const isOpen = widget.classList.contains('open');
+  widget.classList.toggle('open', !isOpen);
+  if (fab) fab.classList.toggle('hidden', !isOpen);
+}
+
+function openDevotionalForm() {
+  const d = siteData.devotional || {};
+  const overlay = document.getElementById('form-modal');
+  const content = document.getElementById('form-content');
+  if (!overlay || !content) return;
+  content.innerHTML = `
+    <h3 style="margin-bottom:20px;">&#9998; Editar Devocional</h3>
+    <div class="form-group"><label>Fecha</label><input type="text" id="d-date" value="${d.date || ''}" style="width:100%;padding:10px;border:1px solid #ccc;margin-bottom:12px;"></div>
+    <div class="form-group"><label>Texto del Devocional</label><textarea id="d-text" rows="5" style="width:100%;padding:10px;border:1px solid #ccc;margin-bottom:12px;">${d.text || ''}</textarea></div>
+    <div class="form-group"><label>Versículo Bíblico</label><input type="text" id="d-verse" value="${d.verse || ''}" style="width:100%;padding:10px;border:1px solid #ccc;margin-bottom:20px;"></div>
+    <button class="btn-dark" onclick="saveDevotional()" style="width:100%;">Guardar</button>
+    <button onclick="document.getElementById('form-modal').classList.remove('active')" style="margin-top:10px;width:100%;font-size:0.75rem;">Cancelar</button>
+  `;
+  overlay.classList.add('active');
+}
+
+function saveDevotional() {
+  siteData.devotional = {
+    date: document.getElementById('d-date').value,
+    text: document.getElementById('d-text').value,
+    verse: document.getElementById('d-verse').value
+  };
+  saveSiteData();
+  renderDevotional();
+  document.getElementById('form-modal').classList.remove('active');
+}
+
+// Init devotional on load
+document.addEventListener('DOMContentLoaded', () => {
+  renderDevotional();
+  // Show FAB after 3 seconds
+  setTimeout(() => {
+    const fab = document.getElementById('devotional-fab');
+    if (fab) fab.classList.add('visible');
+  }, 3000);
+});
+
 

@@ -88,16 +88,16 @@
       <!-- Badge -->
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        <span>Iglesia Apostólica — Múnich, Alemania</span>
+        <span data-i18n="hero_badge">Iglesia Apostólica — Múnich, Alemania</span>
       </div>
 
       <!-- Scripture verse -->
-      <p class="hero-verse">"Yo soy el camino, la verdad y la vida" — Juan 14:6</p>
+      <p class="hero-verse" data-i18n="hero_verse">"Yo soy el camino, la verdad y la vida" — Juan 14:6</p>
 
       <!-- Title with clip animation (word by word) -->
       <div class="hero-title-wrap">
-        <div class="hero-title-clip"><span>Bienvenido</span></div>
-        <div class="hero-title-clip hero-title-clip--2"><span>a Casa.</span></div>
+        <div class="hero-title-clip"><span data-i18n="hero_title_line1">Bienvenido</span></div>
+        <div class="hero-title-clip hero-title-clip--2"><span data-i18n="hero_title_line2">a Casa.</span></div>
       </div>
 
       <!-- Subtitle -->
@@ -120,11 +120,11 @@
 
     <!-- Bottom stat strip -->
     <div class="hero-stat-strip">
-      <div class="hero-stat"><span class="hero-stat-num">850+</span><span class="hero-stat-lbl">Miembros</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">4</span><span class="hero-stat-lbl" data-i18n="stat_groups">Grupos de Amistad</span></div>
       <div class="hero-stat-divider"></div>
-      <div class="hero-stat"><span class="hero-stat-num">3</span><span class="hero-stat-lbl">Idiomas</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">3</span><span class="hero-stat-lbl" data-i18n="stat_langs">Idiomas</span></div>
       <div class="hero-stat-divider"></div>
-      <div class="hero-stat"><span class="hero-stat-num">Dom 10:00</span><span class="hero-stat-lbl">Próximo Servicio</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">Dom 11:00</span><span class="hero-stat-lbl" data-i18n="stat_service">Próximo Servicio</span></div>
     </div>
   </section>
 
@@ -179,20 +179,20 @@
     <div class="container">
       <div class="stats-grid reveal-stagger">
         <div class="stat-item">
-          <span class="stat-number" data-target="850">0</span>
-          <span class="stat-label">Miembros Activos</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number" data-target="12">0</span>
-          <span class="stat-label">Grupos de Conexión</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number" data-target="15">0</span>
-          <span class="stat-label">Años de Ministerio</span>
+          <span class="stat-number" data-target="4">0</span>
+          <span class="stat-label" data-i18n="stat_groups">Grupos de Amistad</span>
         </div>
         <div class="stat-item">
           <span class="stat-number" data-target="3">0</span>
-          <span class="stat-label">Idiomas</span>
+          <span class="stat-label" data-i18n="stat_years">Años de Ministerio</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="3">0</span>
+          <span class="stat-label" data-i18n="stat_langs">Idiomas</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="52">0</span>
+          <span class="stat-label" data-i18n="stat_services">Servicios al Año</span>
         </div>
       </div>
     </div>
@@ -206,10 +206,9 @@
           <span class="section-label" data-i18n="pastors_label">Liderazgo</span>
           <h2 data-i18n="pastors_title">Nuestros Pastores</h2>
           <br>
-          <h3 data-i18n="pastors_name">Pastor & Pastora</h3>
+          <h3 data-i18n="pastors_name">Jhonatan &amp; Lucía Coitiño</h3>
           <p class="pastors-title" data-i18n="pastors_role">Pastores Principales</p>
-          <p data-i18n="pastors_bio">Con un corazón apasionado por servir a Dios...</p>
-          <p data-i18n="pastors_bio2">Su visión es ver familias restauradas...</p>
+          <p data-i18n="pastors_bio">Jhonatan y Lucía Coitiño llevan 3 años al frente de la Asamblea Apostólica en Alemania con un corazón apasionado por ver a cada persona encontrar su propósito en Dios. Su enfoque es la restauración familiar, la enseñanza práctica de la Biblia y el discipulado genuino.</p>
         </div>
         <div class="pastors-image parallax-wrapper reveal-right">
           <img class="parallax-img" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80" alt="Pastores">
@@ -227,26 +226,31 @@
         <p data-i18n="schedule_desc">Te esperamos en cada uno de nuestros servicios.</p>
       </div>
       <div class="schedule-grid reveal-stagger">
+        <!-- Tarjeta 1: Oracion via Google Meet -->
+        <a href="https://meet.google.com/ura-bgpx-nsi" target="_blank" class="schedule-card schedule-card-link reveal">
+          <span class="schedule-icon">&#9903;</span>
+          <h4 data-i18n="sched_prayer">Oración de Iglesia</h4>
+          <p class="schedule-day" data-i18n="sched_prayer_day">Lunes</p>
+          <p class="schedule-time">20:00</p>
+          <p data-i18n="sched_prayer_desc">Vía Google Meet. Únete desde casa a nuestro tiempo de oración e intercesión.</p>
+          <span class="schedule-link-badge" data-i18n="sched_join">Unirse a Meet &rarr;</span>
+        </a>
+        <!-- Tarjeta 2: Grupos de Amistad -->
+        <a href="#groups" class="schedule-card schedule-card-link reveal">
+          <span class="schedule-icon">&#9834;</span>
+          <h4 data-i18n="sched_groups">Grupos de Amistad</h4>
+          <p class="schedule-day" data-i18n="sched_groups_day">Lunes a Viernes</p>
+          <p class="schedule-time" data-i18n="sched_groups_time">Varios horarios</p>
+          <p data-i18n="sched_groups_desc">Grupos pequeños en casas por toda Munich. Comunidad real, fe genuina.</p>
+          <span class="schedule-link-badge" data-i18n="sched_see">Ver grupos &rarr;</span>
+        </a>
+        <!-- Tarjeta 3: Servicio Dominical -->
         <div class="schedule-card reveal">
-          <span class="schedule-icon">✦</span>
+          <span class="schedule-icon">&#10022;</span>
           <h4 data-i18n="sched_sunday">Servicio Dominical</h4>
           <p class="schedule-day" data-i18n="sched_sunday_day">Domingos</p>
-          <p class="schedule-time" data-i18n="sched_sunday_time">10:00</p>
-          <p data-i18n="sched_sunday_desc">Adoración, predicación de la Palabra y comunión.</p>
-        </div>
-        <div class="schedule-card reveal">
-          <span class="schedule-icon">✦</span>
-          <h4 data-i18n="sched_wednesday">Estudio Bíblico</h4>
-          <p class="schedule-day" data-i18n="sched_wednesday_day">Miércoles</p>
-          <p class="schedule-time" data-i18n="sched_wednesday_time">19:00</p>
-          <p data-i18n="sched_wednesday_desc">Profundiza en la Palabra de Dios.</p>
-        </div>
-        <div class="schedule-card reveal">
-          <span class="schedule-icon">✦</span>
-          <h4 data-i18n="sched_friday">Reunión de Oración</h4>
-          <p class="schedule-day" data-i18n="sched_friday_day">Viernes</p>
-          <p class="schedule-time" data-i18n="sched_friday_time">19:30</p>
-          <p data-i18n="sched_friday_desc">Un tiempo dedicado a la oración e intercesión.</p>
+          <p class="schedule-time" data-i18n="sched_sunday_time">11:00 – 13:00 h</p>
+          <p data-i18n="sched_sunday_desc">Adoración, predicación de la Palabra y comunidad. Todos son bienvenidos.</p>
         </div>
       </div>
     </div>
@@ -384,14 +388,17 @@
           <div class="contact-info-item">
             <h4 data-i18n="contact_social_label">Redes Sociales</h4>
             <div class="social-links">
-              <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+              <a href="https://www.instagram.com/apostolicassemblyde?igsh=cTNtY2ZpOHc5M2Y5" target="_blank" aria-label="Instagram">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
               </a>
-              <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+              <a href="https://www.facebook.com/share/18mfPdcUtU/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
               </a>
               <a href="https://wa.me/4915231411675" target="_blank" aria-label="WhatsApp">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 11-7.6-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+              </a>
+              <a href="sms:+4915231411675" aria-label="SMS">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
               </a>
             </div>
           </div>
@@ -462,6 +469,29 @@
       <!-- Dinámico JS -->
     </div>
   </div>
+
+  <!-- ===== DEVOTIONAL WIDGET (Flotante) ===== -->
+  <div class="devotional-widget" id="devotional-widget">
+    <div class="devotional-header">
+      <div class="devotional-title-row">
+        <span class="devotional-icon">&#9830;</span>
+        <span class="devotional-title" data-i18n="devot_title">Devocional del Día</span>
+      </div>
+      <button class="devotional-close" onclick="toggleDevotional()" aria-label="Cerrar">&times;</button>
+    </div>
+    <div class="devotional-body" id="devotional-body">
+      <p class="devotional-date" id="devotional-date"></p>
+      <p class="devotional-text" id="devotional-text"></p>
+      <p class="devotional-verse" id="devotional-verse"></p>
+    </div>
+    <div class="devotional-footer admin-only">
+      <button class="devotional-edit-btn" onclick="openDevotionalForm()">&#9998; Editar Devocional</button>
+    </div>
+  </div>
+  <button class="devotional-fab" id="devotional-fab" onclick="toggleDevotional()" aria-label="Devocional">
+    <span>&#9830;</span>
+    <span class="devotional-fab-label" data-i18n="devot_fab">Devocional</span>
+  </button>
 
   <script src="app.js"></script>
 </body>

@@ -1323,3 +1323,164 @@ body.admin-mode .admin-badge { display: block; }
   .hero-stat-lbl { font-size: 0.55rem; letter-spacing: 0.12em; }
   .hero-stat-divider { height: 28px; }
 }
+
+/* ===== SCHEDULE CARD LINK ===== */
+.schedule-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.schedule-card-link:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+.schedule-link-badge {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 2px;
+}
+
+/* ===== GROUP ADDRESS ===== */
+.group-address {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  margin-top: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.group-address a {
+  color: var(--gold);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* ===== DEVOTIONAL WIDGET ===== */
+.devotional-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  padding: 14px 22px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s;
+  font-family: var(--font-main);
+}
+.devotional-fab.visible { opacity: 1; transform: translateY(0); }
+.devotional-fab.hidden { opacity: 0; pointer-events: none; }
+.devotional-fab:hover { background: var(--gold); }
+.devotional-fab span:first-child { color: var(--gold); font-size: 1rem; }
+.devotional-fab:hover span:first-child { color: var(--black); }
+
+.devotional-widget {
+  position: fixed;
+  bottom: 90px;
+  right: 28px;
+  width: 340px;
+  max-width: calc(100vw - 40px);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  z-index: 1000;
+  transform: translateY(30px) scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.devotional-widget.open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: all;
+}
+.devotional-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--black);
+  color: var(--white);
+}
+.devotional-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.devotional-icon { color: var(--gold); font-size: 1rem; }
+.devotional-close {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  font-family: var(--font-main);
+  transition: color 0.2s;
+}
+.devotional-close:hover { color: var(--white); }
+.devotional-body { padding: 20px; }
+.devotional-date {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.devotional-text {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--gray-300);
+  margin-bottom: 14px;
+}
+.devotional-verse {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--gray-400);
+  border-left: 2px solid var(--gold);
+  padding-left: 12px;
+}
+.devotional-footer {
+  padding: 12px 20px;
+  border-top: 1px solid var(--gray-200);
+}
+.devotional-edit-btn {
+  background: none;
+  border: 1px solid var(--gray-200);
+  padding: 8px 16px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: var(--font-main);
+  width: 100%;
+  transition: all 0.2s;
+}
+.devotional-edit-btn:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+
