@@ -500,15 +500,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ===== DEVOTIONAL WIDGET =====
 function renderDevotional() {
-  const d = siteData.devotional;
+  // Primero intenta leer del archivo devotionals.js (automatico por fecha)
+  let d = null;
+  if (typeof getTodaysDevotional === 'function') {
+    const auto = getTodaysDevotional();
+    if (auto) {
+      d = {
+        date: formatDevotionalDate(auto.fecha),
+        text: auto.texto,
+        verse: auto.versiculo
+      };
+    }
+  }
+  // Si no hay en el archivo, usa el de siteData (editable por admin)
+  if (!d) d = siteData.devotional;
   if (!d) return;
+
   const dateEl = document.getElementById('devotional-date');
   const textEl = document.getElementById('devotional-text');
   const verseEl = document.getElementById('devotional-verse');
-  if (dateEl) dateEl.textContent = d.date || new Date().toLocaleDateString('es-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  if (dateEl) dateEl.textContent = d.date || '';
   if (textEl) textEl.textContent = d.text || '';
   if (verseEl) verseEl.textContent = d.verse || '';
 }
+
+function formatDevotionalDate(fechaDDMM) {
+  try {
+    const [dd, mm] = fechaDDMM.split('-');
+    const year = new Date().getFullYear();
+    const date = new Date(year, parseInt(mm) - 1, parseInt(dd));
+    return date.toLocaleDateString('es-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  } catch(e) {
+    return fechaDDMM;
+  }
+}
+
 
 function toggleDevotional() {
   const widget = document.getElementById('devotional-widget');
