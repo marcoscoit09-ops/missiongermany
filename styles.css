@@ -835,43 +835,84 @@ ul { list-style: none; }
 .sermons-list { display: flex; flex-direction: column; gap: 2px; }
 .sermon-item {
   display: grid;
-  grid-template-columns: 100px 1fr auto;
-  gap: 32px;
+  grid-template-columns: 80px 1fr auto;
+  gap: 28px;
   align-items: center;
-  padding: 28px 32px;
-  background: var(--white);
-  transition: var(--transition);
+  padding: 24px 28px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
   cursor: pointer;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
+  backdrop-filter: blur(4px);
 }
-.sermon-item:hover { background: var(--gray-100); border-color: var(--gold); transform: translateX(8px); }
-.sermon-date {
-  text-align: center;
+.sermon-item:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: var(--gold);
+  transform: translateX(6px);
 }
+.sermon-dimmed { opacity: 0.45; }
+.sermon-dimmed:hover { opacity: 0.6; transform: none; }
+.sermon-date { text-align: center; }
 .sermon-date .day {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 800;
   display: block;
   line-height: 1;
+  color: var(--white);
 }
 .sermon-date .month {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--gray-500);
+  color: var(--gold);
+  font-weight: 600;
 }
 .sermon-info h4 {
   font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 4px;
-  color: var(--black);
+  margin-bottom: 6px;
+  color: var(--white);
 }
 .sermon-info p {
-  font-size: 0.82rem;
-  color: var(--gray-400);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
 }
-.sermon-actions { display: flex; gap: 12px; }
+.sermon-folder { color: rgba(195,157,101,0.7); font-size: 0.72rem; }
+.sermon-actions { display: flex; gap: 12px; align-items: center; }
+
+/* PDF button */
+.sermon-pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.sermon-pdf-btn:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+/* Coming soon badge */
+.sermon-soon-badge {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 6px 12px;
+  white-space: nowrap;
+}
+
 
 /* ===== SONGS ===== */
 .songs-week {

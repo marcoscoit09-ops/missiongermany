@@ -39,13 +39,14 @@ const defaultData = {
     }
   ],
   sermons: [
-    { id: 1, title: "Inquebrantables: Construyendo sobre la Roca", speaker: "Jhonatan Coitiño", date: "11", month: "MAY", folder: "Notas de Predicaciones", link: "#" },
-    { id: 2, title: "El Poder de la Gracia Irresistible", speaker: "Jhonatan Coitiño", date: "04", month: "MAY", folder: "Notas de Predicaciones", link: "#" },
-    { id: 3, title: "Renovando tu Mente", speaker: "Jhonatan Coitiño", date: "27", month: "ABR", folder: "Notas de Predicaciones", link: "#" },
-    { id: 4, title: "Caminando por Fe y no por Vista", speaker: "Jhonatan Coitiño", date: "20", month: "ABR", folder: "Notas de Predicaciones", link: "#" },
-    { id: 5, title: "La Oración que Mueve Montañas", speaker: "Jhonatan Coitiño", date: "13", month: "ABR", folder: "Notas de Predicaciones", link: "#" },
-    { id: 6, title: "Identidad en Cristo", speaker: "Jhonatan Coitiño", date: "06", month: "ABR", folder: "Notas de Predicaciones", link: "#" }
+    { id: 1, title: "El Valle de Batalla", speaker: "Jhonatan Coitiño", date: "11", month: "MAY", folder: "Notas de Predicaciones", link: "sermones/EL-VALLE-DE-BATALLA.pdf" },
+    { id: 2, title: "El Valle del Pecado", speaker: "Jhonatan Coitiño", date: "04", month: "MAY", folder: "Notas de Predicaciones", link: "sermones/EL-VALLE-DEL-PECADO.pdf" },
+    { id: 3, title: "Próximamente...", speaker: "Jhonatan Coitiño", date: "27", month: "ABR", folder: "Notas de Predicaciones", link: "" },
+    { id: 4, title: "Próximamente...", speaker: "Jhonatan Coitiño", date: "20", month: "ABR", folder: "Notas de Predicaciones", link: "" },
+    { id: 5, title: "Próximamente...", speaker: "Jhonatan Coitiño", date: "13", month: "ABR", folder: "Notas de Predicaciones", link: "" },
+    { id: 6, title: "Próximamente...", speaker: "Jhonatan Coitiño", date: "06", month: "ABR", folder: "Notas de Predicaciones", link: "" }
   ],
+
   songs: [
     { id: 1, name: "Océanos (Donde mis pies pueden fallar)", artist: "Hillsong en Español", link: "https://youtube.com" },
     { id: 2, name: "Gracia Incomparable", artist: "Hillsong Worship", link: "https://youtube.com" },
@@ -215,23 +216,40 @@ function renderGroups() {
 }
 
 
+
 function renderSermons() {
   const container = document.getElementById('sermons-container');
   if (!container) return;
-  container.innerHTML = siteData.sermons.map(s => `
-    <div class="sermon-item reveal active">
+  container.innerHTML = siteData.sermons.map(s => {
+    const hasLink = s.link && s.link.trim() !== '';
+    const isPdf = hasLink && s.link.endsWith('.pdf');
+    const isComingSoon = !hasLink || s.title.startsWith('Próximamente');
+
+    const actionBtn = isComingSoon
+      ? `<span class="sermon-soon-badge">Próximamente</span>`
+      : `<a href="${s.link}" target="_blank" rel="noopener" class="sermon-pdf-btn">
+           <span>&#128196;</span> Ver Notas PDF
+         </a>`;
+
+    return `
+    <div class="sermon-item reveal active ${isComingSoon ? 'sermon-dimmed' : ''}">
       <div class="sermon-date"><span class="day">${s.date}</span><span class="month">${s.month}</span></div>
-      <div class="sermon-info"><h4>${s.title}</h4><p>${s.speaker}</p></div>
+      <div class="sermon-info">
+        <h4>${s.title}</h4>
+        <p>${s.speaker} &nbsp;·&nbsp; <span class="sermon-folder">&#128193; ${s.folder}</span></p>
+      </div>
       <div class="sermon-actions">
-        <a href="${s.link}" target="_blank" class="btn-outline" style="border-color:var(--gray-400);color:var(--gray-300);padding:8px 20px;font-size:0.7rem;">Notas</a>
+        ${actionBtn}
         ${isAdmin ? `
           <button class="edit-btn" onclick="editSermon(${s.id})">✎</button>
           <button class="delete-btn" onclick="deleteSermon(${s.id})">✕</button>
         ` : ''}
       </div>
     </div>
-  `).join('');
+  `}).join('');
 }
+
+
 
 function renderSongs() {
   const container = document.getElementById('songs-container');
