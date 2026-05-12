@@ -642,7 +642,8 @@ ul { list-style: none; }
   margin: 0 auto;
   line-height: 1.8;
 }
-.section-dark .section-header p { color: var(--gray-300); }
+.section-dark .section-header p,
+.bg-parallax--dark .section-header p { color: var(--gray-300); }
 .section-label {
   font-size: 0.7rem;
   letter-spacing: 0.3em;
@@ -795,6 +796,12 @@ ul { list-style: none; }
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
+}
+@media (max-width: 768px) {
+  .pastors-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 .pastors-image {
   position: relative;
@@ -1089,7 +1096,7 @@ ul { list-style: none; }
   margin-bottom: 20px;
 }
 .visitors-content p {
-  color: var(--gray-300);
+  color: var(--gray-600);
   margin-bottom: 32px;
   line-height: 1.8;
 }
@@ -1099,6 +1106,12 @@ ul { list-style: none; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
+}
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 .contact-form .form-group { margin-bottom: 24px; }
 .contact-form label {
@@ -1355,6 +1368,20 @@ ul { list-style: none; }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
+}
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stat-item {
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .stat-item:nth-child(even) {
+    border-right: none;
+  }
+  .stat-item:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
 }
 .stat-item {
   text-align: center;
