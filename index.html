@@ -156,45 +156,48 @@
   <!-- ===== ABOUT ===== -->
   <section class="section bg-parallax bg-parallax--light" id="about" style="--bg-img: url('https://images.unsplash.com/photo-1504052434569-62c5157969f3?fm=jpg&q=85&w=1920&auto=format&fit=crop');">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-image parallax-wrapper reveal-left">
-          <img class="parallax-img" src="https://images.unsplash.com/photo-1504052434569-62c5157969f3?w=800&q=80" alt="Congregación">
-        </div>
-        <div class="about-text reveal-right">
+      <div class="about-devot-grid">
+
+        <!-- COLUMNA IZQUIERDA: Info de la iglesia -->
+        <div class="about-text reveal-left">
           <span class="section-label" data-i18n="about_label">Nuestra Historia</span>
           <h2 data-i18n="about_title">Quiénes Somos</h2>
-          <br>
           <p data-i18n="about_desc">Somos una comunidad de fe que cree en el poder transformador de Dios...</p>
-          <br>
-          <h3 data-i18n="about_mission_title">Nuestra Misión</h3>
-          <p data-i18n="about_mission">Llevar el mensaje de salvación a cada persona en Alemania...</p>
-          <br>
-          <h3 data-i18n="about_vision_title">Nuestra Visión</h3>
-          <p data-i18n="about_vision">Ser una iglesia relevante y transformadora...</p>
-        </div>
-      </div>
 
-      <!-- PENSAMIENTO DEL DÍA integrado -->
-      <div class="about-devot-card reveal">
-        <div class="about-devot-header">
-          <span class="devot-diamond">&#9830;</span>
-          <span class="devot-label" data-i18n="devot_title">Pensamiento del Día</span>
-          <span class="about-devot-date" id="devot-date-tag"></span>
+          <div class="about-pillar">
+            <h3 data-i18n="about_mission_title">Nuestra Misión</h3>
+            <p data-i18n="about_mission">Llevar el mensaje de salvación a cada persona en Alemania...</p>
+          </div>
+
+          <div class="about-pillar">
+            <h3 data-i18n="about_vision_title">Nuestra Visión</h3>
+            <p data-i18n="about_vision">Ser una iglesia relevante y transformadora...</p>
+          </div>
         </div>
-        <blockquote class="about-devot-quote" id="devot-quote">Cargando pensamiento de hoy...</blockquote>
-        <div class="about-devot-footer">
-          <p class="about-devot-verse" id="devot-verse-section"></p>
-          <div class="about-devot-sig">
-            <span class="devot-author">— Pastor Jhonatan Coitiño</span>
-            <div class="admin-only">
-              <button class="devot-admin-btn" onclick="openDevotionalForm()">&#9998; Editar</button>
+
+        <!-- COLUMNA DERECHA: Pensamiento del Día -->
+        <div class="about-devot-card reveal-right">
+          <div class="about-devot-header">
+            <span class="devot-diamond">&#9830;</span>
+            <span class="devot-label" data-i18n="devot_title">Pensamiento del Día</span>
+          </div>
+          <span class="about-devot-date" id="devot-date-tag"></span>
+          <blockquote class="about-devot-quote" id="devot-quote">Cargando pensamiento de hoy...</blockquote>
+          <div class="about-devot-footer">
+            <p class="about-devot-verse" id="devot-verse-section"></p>
+            <div class="about-devot-sig">
+              <span class="devot-author">— Pastor Jhonatan Coitiño</span>
+              <div class="admin-only">
+                <button class="devot-admin-btn" onclick="openDevotionalForm()">&#9998; Editar</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </section>
+
 
   <!-- ===== STATS ===== -->
   <section class="stats-section bg-parallax bg-parallax--dark" style="--bg-img: url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?fm=jpg&q=85&w=1920&auto=format&fit=crop');">
