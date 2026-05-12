@@ -388,7 +388,7 @@ ul { list-style: none; }
 .hero-title-clip {
   overflow: hidden;
   line-height: 1.2;
-  padding-bottom: 8px;
+  padding: 10px 0;
 }
 .hero-title-clip span {
   display: block;
