@@ -262,16 +262,28 @@ function renderAll() {
 
 // ===== ADMIN ACTIONS =====
 function tryLogin() {
+  const user = document.getElementById('admin-user').value.trim();
   const pass = document.getElementById('admin-pass').value;
-  if (pass === 'admin123') {
+  if (user === 'PrJhona' && pass === 'Dios238') {
     isAdmin = true;
     sessionStorage.setItem('aag-admin', 'true');
     closeLogin();
     renderAll();
-    alert("Modo Admin Activado");
+    renderDevotional();
+    showAdminToast();
+  } else if (user !== 'PrJhona') {
+    document.getElementById('login-error').textContent = 'Usuario incorrecto.';
   } else {
-    alert("Contraseña incorrecta");
+    document.getElementById('login-error').textContent = 'Contraseña incorrecta.';
   }
+}
+
+function showAdminToast() {
+  const t = document.createElement('div');
+  t.textContent = '✓ Modo Admin activado — Bienvenido, Pr. Jhona';
+  t.style.cssText = 'position:fixed;top:24px;left:50%;transform:translateX(-50%);background:#000;color:#fff;padding:14px 28px;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;z-index:9999;box-shadow:0 8px 30px rgba(0,0,0,0.2);';
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 3500);
 }
 
 function closeLogin() { document.getElementById('login-modal').classList.remove('active'); }
@@ -500,7 +512,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ===== DEVOTIONAL WIDGET =====
 function renderDevotional() {
-  // Primero intenta leer del archivo devotionals.js (automatico por fecha)
   let d = null;
   if (typeof getTodaysDevotional === 'function') {
     const auto = getTodaysDevotional();
@@ -512,17 +523,26 @@ function renderDevotional() {
       };
     }
   }
-  // Si no hay en el archivo, usa el de siteData (editable por admin)
   if (!d) d = siteData.devotional;
   if (!d) return;
 
+  // --- Floating widget ---
   const dateEl = document.getElementById('devotional-date');
   const textEl = document.getElementById('devotional-text');
   const verseEl = document.getElementById('devotional-verse');
   if (dateEl) dateEl.textContent = d.date || '';
   if (textEl) textEl.textContent = d.text || '';
   if (verseEl) verseEl.textContent = d.verse || '';
+
+  // --- Inline editorial section ---
+  const quoteEl = document.getElementById('devot-quote');
+  const verseSectionEl = document.getElementById('devot-verse-section');
+  const dateTagEl = document.getElementById('devot-date-tag');
+  if (quoteEl) quoteEl.textContent = d.text || '';
+  if (verseSectionEl) verseSectionEl.textContent = d.verse || '';
+  if (dateTagEl) dateTagEl.textContent = d.date || '';
 }
+
 
 function formatDevotionalDate(fechaDDMM) {
   try {

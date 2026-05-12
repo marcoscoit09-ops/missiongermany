@@ -1484,3 +1484,104 @@ body.admin-mode .admin-badge { display: block; }
 }
 .devotional-edit-btn:hover { background: var(--black); color: var(--white); border-color: var(--black); }
 
+/* ===== SECCIÓN EDITORIAL: PENSAMIENTO DEL DÍA ===== */
+.devot-section {
+  background: #0a0a0a;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.devot-section::before {
+  content: '\201C';
+  position: absolute;
+  top: -40px;
+  left: 4%;
+  font-size: 28rem;
+  line-height: 1;
+  color: rgba(195, 157, 101, 0.04);
+  font-family: Georgia, serif;
+  pointer-events: none;
+}
+.devot-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 40px;
+  text-align: center;
+}
+.devot-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+.devot-diamond { color: var(--gold); font-size: 1rem; }
+.devot-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.devot-date-tag {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  border-left: 1px solid rgba(195,157,101,0.3);
+  padding-left: 12px;
+}
+.devot-quote {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.92);
+  margin: 0 0 36px 0;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  position: relative;
+}
+.devot-verse {
+  font-size: 0.82rem;
+  color: var(--gold);
+  font-style: italic;
+  border-left: 2px solid var(--gold);
+  padding: 10px 0 10px 20px;
+  text-align: left;
+  display: inline-block;
+  margin-bottom: 20px;
+  max-width: 100%;
+}
+.devot-author {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-top: 4px;
+}
+.devot-admin-btn {
+  background: transparent;
+  border: 1px solid rgba(195,157,101,0.4);
+  color: var(--gold);
+  padding: 10px 24px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: var(--font-main);
+  transition: all 0.2s;
+}
+.devot-admin-btn:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+@media (max-width: 600px) {
+  .devot-section { padding: 70px 0; }
+  .devot-inner { padding: 0 24px; }
+  .devot-section::before { font-size: 14rem; top: -10px; }
+  .devot-date-tag { display: none; }
+}
+
+
