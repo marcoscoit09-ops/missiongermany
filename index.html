@@ -173,6 +173,26 @@
           <p data-i18n="about_vision">Ser una iglesia relevante y transformadora...</p>
         </div>
       </div>
+
+      <!-- PENSAMIENTO DEL DÍA integrado -->
+      <div class="about-devot-card reveal">
+        <div class="about-devot-header">
+          <span class="devot-diamond">&#9830;</span>
+          <span class="devot-label" data-i18n="devot_title">Pensamiento del Día</span>
+          <span class="about-devot-date" id="devot-date-tag"></span>
+        </div>
+        <blockquote class="about-devot-quote" id="devot-quote">Cargando pensamiento de hoy...</blockquote>
+        <div class="about-devot-footer">
+          <p class="about-devot-verse" id="devot-verse-section"></p>
+          <div class="about-devot-sig">
+            <span class="devot-author">— Pastor Jhonatan Coitiño</span>
+            <div class="admin-only">
+              <button class="devot-admin-btn" onclick="openDevotionalForm()">&#9998; Editar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -499,22 +519,6 @@
       <button class="devotional-edit-btn" onclick="openDevotionalForm()">&#9998; Editar Devocional</button>
     </div>
   </div>
-  <!-- ===== DEVOCIONAL DEL DIA (Seccion editorial) ===== -->
-  <section class="devot-section" id="devocional">
-    <div class="devot-inner">
-      <div class="devot-label-row">
-        <span class="devot-diamond">&#9830;</span>
-        <span class="devot-label" data-i18n="devot_title">Pensamiento del D&iacute;a</span>
-        <span class="devot-date-tag" id="devot-date-tag"></span>
-      </div>
-      <blockquote class="devot-quote" id="devot-quote">Cargando pensamiento de hoy...</blockquote>
-      <p class="devot-verse" id="devot-verse-section"></p>
-      <p class="devot-author">&#8212; Pastor Jhonatan Coiti&ntilde;o</p>
-      <div class="admin-only" style="margin-top:28px;">
-        <button class="devot-admin-btn" onclick="openDevotionalForm()">&#9998; Editar Pensamiento del D&iacute;a</button>
-      </div>
-    </div>
-  </section>
 
   <button class="devotional-fab" id="devotional-fab" onclick="toggleDevotional()" aria-label="Devocional">
     <span>&#9830;</span>

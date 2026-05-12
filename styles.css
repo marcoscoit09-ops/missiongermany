@@ -1664,37 +1664,8 @@ body.admin-mode .admin-badge { display: block; }
 }
 .devotional-edit-btn:hover { background: var(--black); color: var(--white); border-color: var(--black); }
 
-/* ===== SECCIÓN EDITORIAL: PENSAMIENTO DEL DÍA ===== */
-.devot-section {
-  background: #0a0a0a;
-  padding: 100px 0;
-  position: relative;
-  overflow: hidden;
-}
-.devot-section::before {
-  content: '\201C';
-  position: absolute;
-  top: -40px;
-  left: 4%;
-  font-size: 28rem;
-  line-height: 1;
-  color: rgba(195, 157, 101, 0.04);
-  font-family: Georgia, serif;
-  pointer-events: none;
-}
-.devot-inner {
-  max-width: 820px;
-  margin: 0 auto;
-  padding: 0 40px;
-  text-align: center;
-}
-.devot-label-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 48px;
-}
+/* ===== PENSAMIENTO DEL DÍA — tokens compartidos + tarjeta integrada ===== */
+
 .devot-diamond { color: var(--gold); font-size: 1rem; }
 .devot-label {
   font-size: 0.68rem;
@@ -1703,48 +1674,18 @@ body.admin-mode .admin-badge { display: block; }
   text-transform: uppercase;
   color: var(--gold);
 }
-.devot-date-tag {
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.3);
-  text-transform: uppercase;
-  border-left: 1px solid rgba(195,157,101,0.3);
-  padding-left: 12px;
-}
-.devot-quote {
-  font-size: clamp(1.25rem, 3vw, 2rem);
-  font-weight: 300;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.92);
-  margin: 0 0 36px 0;
-  font-style: italic;
-  letter-spacing: 0.01em;
-  position: relative;
-}
-.devot-verse {
-  font-size: 0.82rem;
-  color: var(--gold);
-  font-style: italic;
-  border-left: 2px solid var(--gold);
-  padding: 10px 0 10px 20px;
-  text-align: left;
-  display: inline-block;
-  margin-bottom: 20px;
-  max-width: 100%;
-}
 .devot-author {
   font-size: 0.72rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.35);
-  margin-top: 4px;
 }
 .devot-admin-btn {
   background: transparent;
   border: 1px solid rgba(195,157,101,0.4);
   color: var(--gold);
-  padding: 10px 24px;
-  font-size: 0.68rem;
+  padding: 8px 18px;
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1752,16 +1693,98 @@ body.admin-mode .admin-badge { display: block; }
   font-family: var(--font-main);
   transition: all 0.2s;
 }
-.devot-admin-btn:hover {
-  background: var(--gold);
-  color: var(--black);
-  border-color: var(--gold);
+.devot-admin-btn:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+
+/* ===== PENSAMIENTO DEL DÍA — Integrated card inside About ===== */
+.about-devot-card {
+  position: relative;
+  margin-top: 56px;
+  background: #0d0d0d;
+  border: 1px solid rgba(195,157,101,0.18);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 52px 56px;
+  gap: 28px;
 }
-@media (max-width: 600px) {
-  .devot-section { padding: 70px 0; }
-  .devot-inner { padding: 0 24px; }
-  .devot-section::before { font-size: 14rem; top: -10px; }
-  .devot-date-tag { display: none; }
+/* Giant decorative quote mark */
+.about-devot-card::before {
+  content: '\201C';
+  position: absolute;
+  top: -30px;
+  left: 32px;
+  font-size: 18rem;
+  line-height: 1;
+  color: rgba(195,157,101,0.05);
+  font-family: Georgia, serif;
+  pointer-events: none;
+  z-index: 0;
+}
+/* Gold top accent line */
+.about-devot-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold), transparent);
+}
+.about-devot-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+.about-devot-date {
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  color: rgba(255,255,255,0.28);
+  text-transform: uppercase;
+  border-left: 1px solid rgba(195,157,101,0.3);
+  padding-left: 12px;
+}
+.about-devot-quote {
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.9);
+  font-style: italic;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+.about-devot-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+.about-devot-verse {
+  font-size: 0.82rem;
+  color: var(--gold);
+  font-style: italic;
+  border-left: 2px solid var(--gold);
+  padding: 8px 0 8px 18px;
+  flex: 1;
+  min-width: 200px;
+  margin: 0;
+}
+.about-devot-sig {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
+@media (max-width: 768px) {
+  .about-devot-card { padding: 36px 28px; margin-top: 40px; }
+  .about-devot-card::before { font-size: 9rem; }
+  .about-devot-footer { flex-direction: column; align-items: flex-start; }
+  .about-devot-sig { align-items: flex-start; }
+  .about-devot-date { display: none; }
+}
 
