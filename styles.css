@@ -1599,8 +1599,8 @@ body.admin-mode .admin-badge { display: block; }
 
   /* Titulo: no se sale del ancho */
   .hero-title-clip span {
-    font-size: clamp(3rem, 16vw, 5rem);
-    letter-spacing: -0.01em;
+    font-size: clamp(2.5rem, 10.5vw, 4.5rem);
+    letter-spacing: -0.02em;
   }
 
   /* Subtitle */
